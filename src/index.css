@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #FCFBF9;      /* Warm white / cream background */
+  --bg-secondary: #F4F2EE;    /* Slightly darker warm gray */
+  --bg-tertiary: #EAE7E1;     /* Contrast elements */
+  --text-primary: #151515;    /* Premium dark gray/black */
+  --text-secondary: #5A5A5A;  /* Muted charcoal */
+  --text-tertiary: #8E8E8E;   /* Soft helper text */
+  --gold-accent: #C5A880;     /* Champagne gold */
+  --gold-hover: #B3946B;      /* Darker champagne gold */
+  --border-color: #E5E2DB;    /* Soft borders */
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-border: rgba(197, 168, 128, 0.15);
+  --shadow-color: rgba(21, 21, 21, 0.05);
+}
+
+:root.dark {
+  --bg-primary: #070707;      /* Pure rich dark */
+  --bg-secondary: #0F0F0F;    /* Sleek charcoal dark */
+  --bg-tertiary: #171717;     /* Soft dark background */
+  --text-primary: #FFFFFF;    /* Pure white */
+  --text-secondary: #A0A0A0;  /* Muted silver-gray */
+  --text-tertiary: #6C6C6C;   /* Deep helper text */
+  --gold-accent: #D4AF37;     /* Luxury metallic gold */
+  --gold-hover: #E5C158;      /* Bright metallic gold */
+  --border-color: #222222;    /* Dark border lines */
+  --card-bg: rgba(15, 15, 15, 0.7);
+  --card-border: rgba(212, 175, 55, 0.15);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  
+  --color-primary-bg: var(--bg-primary);
+  --color-secondary-bg: var(--bg-secondary);
+  --color-tertiary-bg: var(--bg-tertiary);
+  --color-primary-text: var(--text-primary);
+  --color-secondary-text: var(--text-secondary);
+  --color-tertiary-text: var(--text-tertiary);
+  --color-gold-accent: var(--gold-accent);
+  --color-gold-hover: var(--gold-hover);
+  --color-border-color: var(--border-color);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold-accent);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-hover);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Utility Animations */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-effect::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 20%,
+    rgba(255, 255, 255, 0.1) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 2.5s infinite;
+  content: '';
+}
+
+.dark .shimmer-effect::after {
+  background-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(212, 175, 55, 0.03) 20%,
+    rgba(212, 175, 55, 0.08) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* Remove default App layout constraints */
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Futuristic Radial Spotlight Glows */
+.spotlight-glow {
+  position: relative;
+}
+
+.spotlight-glow > * {
+  position: relative;
+  z-index: 10;
+}
+
+.spotlight-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% -10%, rgba(197, 168, 128, 0.05), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dark .spotlight-glow::before {
+  background: radial-gradient(circle at 50% -10%, rgba(212, 175, 55, 0.08), transparent 50%);
+}
+
+.spotlight-glow-bottom {
+  position: relative;
+}
+
+.spotlight-glow-bottom > * {
+  position: relative;
+  z-index: 10;
+}
+
+.spotlight-glow-bottom::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 110%, rgba(197, 168, 128, 0.05), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dark .spotlight-glow-bottom::after {
+  background: radial-gradient(circle at 50% 110%, rgba(212, 175, 55, 0.08), transparent 50%);
+}

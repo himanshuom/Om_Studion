@@ -1,0 +1,28 @@
+# Tasks: Studio LensCraft Website Implementation
+
+- [x] Initialize Vite React project
+- [x] Install dependencies (tailwindcss, @tailwindcss/vite, framer-motion, lucide-react)
+- [x] Configure Tailwind CSS v4 in Vite
+- [x] Configure index.css with typography and luxury color themes (dark/light toggle variables)
+- [x] Generate/curate premium assets (Hero slides, Frame types, Before/After images)
+- [x] Create layout components:
+  - [x] Navbar (with glassmorphism, responsive menu, and light/dark theme toggle)
+  - [x] Footer (with quick links, business info, social icons, newsletter sign-up)
+  - [x] WhatsAppButton (floating contact chat bubble)
+  - [x] ScrollToTop (floating helper button)
+- [x] Create main content sections:
+  - [x] Hero (parallax photography slider, text reveal)
+  - [x] About (story layout, animated counters for stats)
+  - [x] Services (interactive grid with hover-zoom cards and detail modals)
+  - [x] Portfolio (masonry gallery with category filters and image lightbox preview)
+  - [x] FrameShowcase (product catalog for wooden, acrylic, canvas, and wedding frames)
+  - [x] BeforeAfter (drag-to-compare raw vs edited image slider)
+  - [x] WhyChooseUs (glowing card grid of studio highlights)
+  - [x] Pricing (elegant rates sheet with call-to-actions)
+  - [x] Testimonials (swipeable/draggable customer reviews slider)
+  - [x] FAQ (accordion-style help desk)
+  - [x] InstagramFeed (mock grid of social updates)
+  - [x] BookingSection (form validation and gorgeous visual booking success modal)
+- [x] Integrate all components in App.jsx
+- [x] Run production build (`npm run build`) and verify it compiles without errors
+- [x] Create Walkthrough artifact summarizing results
